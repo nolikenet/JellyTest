@@ -60,9 +60,7 @@ public class ActorPlayerMovement : MonoBehaviour, IMovable {
     sq.Append(move).Join(rotate).Append(shakeScale).OnComplete(() => {
       _node.CurrentNode = destination;
       _isMoving = false;
-      if (LevelController.Instance.TryEndLevel()) {
-        Debug.Log("<color=green>Level Ended.</color>");
-      }
+      
     }).Play();
   }
 
