@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 124924293}
   - component: {fileID: 124924296}
   m_Layer: 0
-  m_Name: GridNode
+  m_Name: GridNode1.2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,7 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 129137559}
   m_Layer: 0
-  m_Name: Grid (1)
+  m_Name: Grid2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,6 +274,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &255829307 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9094992585370169521, guid: 1541bd4a5f280a4278d0ed3dcf266a13,
+    type: 3}
+  m_PrefabInstance: {fileID: 723723596}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &451803693
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +294,7 @@ GameObject:
   - component: {fileID: 451803695}
   - component: {fileID: 451803698}
   m_Layer: 0
-  m_Name: GridPiece (5)
+  m_Name: GridNode1.6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -401,7 +407,7 @@ GameObject:
   - component: {fileID: 461364407}
   - component: {fileID: 461364405}
   m_Layer: 0
-  m_Name: GridPiece (8)
+  m_Name: GridNode1.9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -514,7 +520,7 @@ GameObject:
   - component: {fileID: 595700374}
   - component: {fileID: 595700377}
   m_Layer: 0
-  m_Name: GridPiece (7)
+  m_Name: GridNode1.8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -626,7 +632,7 @@ GameObject:
   - component: {fileID: 604244088}
   - component: {fileID: 604244087}
   m_Layer: 0
-  m_Name: GridPiece (2)
+  m_Name: GridNode2.3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -738,7 +744,7 @@ GameObject:
   - component: {fileID: 608509473}
   - component: {fileID: 608509472}
   m_Layer: 0
-  m_Name: GridPiece (1)
+  m_Name: GridNode2.2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -924,7 +930,7 @@ GameObject:
   - component: {fileID: 790331738}
   - component: {fileID: 790331737}
   m_Layer: 0
-  m_Name: GridPiece (7)
+  m_Name: GridNode2.8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1036,7 +1042,7 @@ GameObject:
   - component: {fileID: 796121889}
   - component: {fileID: 796121888}
   m_Layer: 0
-  m_Name: GridPiece (8)
+  m_Name: GridNode2.9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1149,7 +1155,7 @@ GameObject:
   - component: {fileID: 874321388}
   - component: {fileID: 874321387}
   m_Layer: 0
-  m_Name: GridPiece (6)
+  m_Name: GridNode2.7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1257,7 +1263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 975172386}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Grid1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1300,7 +1306,7 @@ GameObject:
   - component: {fileID: 1062979626}
   - component: {fileID: 1062979625}
   m_Layer: 0
-  m_Name: GridPiece (6)
+  m_Name: GridNode1.7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1412,7 +1418,7 @@ GameObject:
   - component: {fileID: 1070384997}
   - component: {fileID: 1070384996}
   m_Layer: 0
-  m_Name: GridPiece (2)
+  m_Name: GridNode1.3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1525,7 +1531,7 @@ GameObject:
   - component: {fileID: 1093569536}
   - component: {fileID: 1093569535}
   m_Layer: 0
-  m_Name: GridPiece (3)
+  m_Name: GridNode2.4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1638,7 +1644,7 @@ GameObject:
   - component: {fileID: 1332188983}
   - component: {fileID: 1332188986}
   m_Layer: 0
-  m_Name: GridPiece (3)
+  m_Name: GridNode1.4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1748,8 +1754,9 @@ GameObject:
   - component: {fileID: 1472369793}
   - component: {fileID: 1472369792}
   - component: {fileID: 1472369791}
+  - component: {fileID: 1472369794}
   m_Layer: 0
-  m_Name: Main Camera (1)
+  m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1813,13 +1820,26 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472369790}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.42972326, y: 0, z: 0, w: 0.90296066}
+  m_LocalPosition: {x: 3.06, y: 10.8, z: -6.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50.9, y: 0, z: 0}
+--- !u!114 &1472369794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472369790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940101b54de2340c59a4762e0b8c76f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 255829307}
 --- !u!1001 &1665353426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1885,7 +1905,7 @@ PrefabInstance:
     - target: {fileID: 5127467222711040724, guid: 7794c8d392b3f41f2a33d539f1bc53d3,
         type: 3}
       propertyPath: m_Name
-      value: GridPiece
+      value: GridNode2.1
       objectReference: {fileID: 0}
     - target: {fileID: 5127467222711040735, guid: 7794c8d392b3f41f2a33d539f1bc53d3,
         type: 3}
@@ -1941,7 +1961,7 @@ GameObject:
   - component: {fileID: 1711176467}
   - component: {fileID: 1711176466}
   m_Layer: 0
-  m_Name: GridPiece (5)
+  m_Name: GridNode2.6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2054,7 +2074,7 @@ GameObject:
   - component: {fileID: 1926207097}
   - component: {fileID: 1926207096}
   m_Layer: 0
-  m_Name: GridPiece (4)
+  m_Name: GridNode1.5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2416,7 +2436,7 @@ GameObject:
   - component: {fileID: 2137479905}
   - component: {fileID: 2137479904}
   m_Layer: 0
-  m_Name: GridPiece (4)
+  m_Name: GridNode2.5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2580,7 +2600,7 @@ PrefabInstance:
     - target: {fileID: 5127467222711040724, guid: 7794c8d392b3f41f2a33d539f1bc53d3,
         type: 3}
       propertyPath: m_Name
-      value: GridNode
+      value: GridNode1.1
       objectReference: {fileID: 0}
     - target: {fileID: 5127467222711040735, guid: 7794c8d392b3f41f2a33d539f1bc53d3,
         type: 3}

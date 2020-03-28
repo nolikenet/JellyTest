@@ -31,10 +31,8 @@ public class ActorSolverMovement : MonoBehaviour, IMovable {
       _node.CurrentNode.Solver = null;
       _node.CurrentNode = node;
       _renderer.material = _node.CurrentNode.IsDestination ? _destinationMat : _initialMat;
-      
-      if (LevelController.Instance.TryEndLevel()) {
-        Debug.Log("<color=green>Level Ended.</color>");
-      }
+
+      LevelController.Instance.TryEndLevel();
       return true;
     }
 
