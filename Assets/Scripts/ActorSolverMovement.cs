@@ -8,6 +8,9 @@ public class ActorSolverMovement : MonoBehaviour, IMovable {
   private Material _initialMat;
   private Material _destinationMat;
 
+  private DG.Tweening.Sequence _moveSq;
+  private DG.Tweening.Tween _punch; 
+
   private void Start() {
     _node = GetComponent<NodeScope>();
     transform.position = Vector3.up + _node.StartingNode.transform.position;
@@ -39,16 +42,30 @@ public class ActorSolverMovement : MonoBehaviour, IMovable {
   }
 
   public void Punch() {
-    transform.DOShakeScale(0.4f, 0.3f, 10, 1.0f);
+    ResetRotation();
+    ResetScale();
+    _punch?.Kill();
+    _punch = transform.DOShakeScale(0.4f, 0.3f, 10, 1.0f);
+  }
+  
+  public void ResetRotation() {
+    transform.rotation = Quaternion.Euler(Vector3.zero);
+  }
+
+  public void ResetScale() {
+    transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
   }
 
   private void Move(GridNode location, Vector3 direction) {
-    var sq = DOTween.Sequence();
+    _moveSq?.Kill();
+    ResetRotation();
+    ResetScale();
+    _moveSq = DOTween.Sequence();
     var move = transform.DOMove(
       new Vector3(location.transform.position.x, transform.position.y, location.transform.position.z),
       0.3f);
-    var shakeScale = transform.DOShakeScale(0.3f, 0.3f, 10, 1.0f);
-    sq.Append(move).Append(shakeScale).Play();
+    var shakeScale = transform.DOShakeScale(0.5f, 0.3f, 10, 1.0f);
+    _moveSq.Join(move).Join(shakeScale).Play();
   }
 
 }

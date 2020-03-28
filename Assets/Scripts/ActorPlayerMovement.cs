@@ -5,6 +5,7 @@ public class ActorPlayerMovement : MonoBehaviour, IMovable {
 
   private bool _isMoving;
   private NodeScope _node;
+  private DG.Tweening.Sequence _moveSq;
 
   private void Awake() {
     _node = GetComponent<NodeScope>();
@@ -12,8 +13,12 @@ public class ActorPlayerMovement : MonoBehaviour, IMovable {
       _node.StartingNode.transform.position.z);
   }
 
-  private void ResetRotation() {
+  public void ResetRotation() {
     transform.rotation = Quaternion.Euler(Vector3.zero);
+  }
+
+  public void ResetScale() {
+    transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
   }
 
   public bool TryMove(Vector3 direction) {
@@ -48,20 +53,24 @@ public class ActorPlayerMovement : MonoBehaviour, IMovable {
 
   private void Move(GridNode destination, Vector3 direction) {
     _isMoving = true;
-    var sq = DOTween.Sequence();
+    _moveSq?.Kill();
+    ResetRotation();
+    ResetScale();
+    _moveSq = DOTween.Sequence();
     var move = transform.DOMove(
-      new Vector3(destination.transform.position.x, transform.position.y, destination.transform.position.z), 0.3f);
+        new Vector3(destination.transform.position.x, transform.position.y, destination.transform.position.z), 0.2f)
+      .OnComplete(() => {
+        ;
+        _node.CurrentNode = destination;
+        _isMoving = false;
+      });
     var rotate = transform
-      .DOLocalRotateQuaternion(transform.localRotation * Quaternion.Euler(GetRotationAxis(direction) * 90.0f), 0.3f)
+      .DOLocalRotateQuaternion(transform.localRotation * Quaternion.Euler(GetRotationAxis(direction) * 90.0f), 0.25f)
       .OnComplete(
         ResetRotation
       );
-    var shakeScale = transform.DOShakeScale(0.3f, 0.3f, 10, 1.0f);
-    sq.Append(move).Join(rotate).Append(shakeScale).OnComplete(() => {
-      _node.CurrentNode = destination;
-      _isMoving = false;
-      
-    }).Play();
+    var shakeScale = transform.DOShakeScale(0.6f, 0.3f, 10, 1.0f);
+    _moveSq.Append(move).Join(rotate).Join(shakeScale).Play();
   }
 
 }
