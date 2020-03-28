@@ -11,6 +11,17 @@ public class LevelController : MonoBehaviour {
     Instance = this;
   }
 
+  private void RestartLevel() {
+    var activeScene = SceneManager.GetActiveScene();
+    SceneManager.LoadScene(activeScene.buildIndex);
+  }
+
+  private void Update() {
+    if (Input.GetKeyDown(KeyCode.R)) {
+      RestartLevel();
+    }
+  }
+
   private IEnumerator LoadNextLevelCor() {
     yield return new WaitForSeconds(3.0f);
     var activeScene = SceneManager.GetActiveScene();
