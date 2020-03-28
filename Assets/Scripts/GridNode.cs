@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class GridPiece : MonoBehaviour {
+public class GridNode : MonoBehaviour {
 
     public bool IsOpen;
     public bool IsDestination;
-    public GridPiece[] Neighbors;
+    public GridNode[] Neighbors;
     
     private void Awake() {
         
