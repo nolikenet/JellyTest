@@ -4,7 +4,6 @@ using UnityEngine;
 public class ActorPlayerMovement : MonoBehaviour, IMovable {
 
   private bool _isMoving;
-
   private NodeScope _node;
 
   private void Awake() {
@@ -17,15 +16,22 @@ public class ActorPlayerMovement : MonoBehaviour, IMovable {
     transform.rotation = Quaternion.Euler(Vector3.zero);
   }
 
-  public void TryMove(Vector3 direction) {
-    if (_isMoving) return;
-    foreach (var neighbor in _node.CurrentNode.Neighbors) {
-      var vecDir = neighbor.transform.position - _node.CurrentNode.transform.position;
-      if (vecDir.normalized == direction.normalized) {
-        if (!neighbor.IsOpen) return;
-        Move(neighbor, direction);
+  public bool TryMove(Vector3 direction) {
+    if (_isMoving) return false;
+    foreach (var node in _node.CurrentNode.Neighbors) {
+      var vecDir = node.transform.position - _node.CurrentNode.transform.position;
+      if (vecDir.normalized != direction.normalized) continue;
+      if (!node.IsOpen) return false;
+      if (node.Solver != null) {
+        var canMove = node.Solver.TryMove(direction);
+        if (!canMove) return false;
       }
+
+      Move(node, direction);
+      return true;
     }
+
+    return false;
   }
 
   private Vector3 GetRotationAxis(Vector3 direction) {
@@ -51,6 +57,9 @@ public class ActorPlayerMovement : MonoBehaviour, IMovable {
     sq.Append(move).Join(rotate).Append(punchScale).OnComplete(() => {
       _node.CurrentNode = destination;
       _isMoving = false;
+      if (LevelController.Instance.TryEndLevel()) {
+        Debug.Log("<color=green>Level Ended.</color>");
+      }
     }).Play();
   }
 

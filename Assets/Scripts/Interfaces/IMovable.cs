@@ -1,9 +1,7 @@
-﻿
-
-using UnityEngine;
+﻿using UnityEngine;
 
 public interface IMovable {
 
-    void TryMove(Vector3 direction);
+  bool TryMove(Vector3 direction);
 
 }
