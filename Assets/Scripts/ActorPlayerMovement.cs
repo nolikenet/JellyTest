@@ -24,7 +24,10 @@ public class ActorPlayerMovement : MonoBehaviour, IMovable {
       if (!node.IsOpen) return false;
       if (node.Solver != null) {
         var canMove = node.Solver.TryMove(direction);
-        if (!canMove) return false;
+        if (!canMove) {
+          node.Solver.Punch();
+          return false;
+        }
       }
 
       Move(node, direction);
@@ -53,8 +56,8 @@ public class ActorPlayerMovement : MonoBehaviour, IMovable {
       .OnComplete(
         ResetRotation
       );
-    var punchScale = transform.DOPunchScale(direction.normalized, 0.3f, 10, 1.0f);
-    sq.Append(move).Join(rotate).Append(punchScale).OnComplete(() => {
+    var shakeScale = transform.DOShakeScale(0.3f, 0.3f, 10, 1.0f);
+    sq.Append(move).Join(rotate).Append(shakeScale).OnComplete(() => {
       _node.CurrentNode = destination;
       _isMoving = false;
       if (LevelController.Instance.TryEndLevel()) {

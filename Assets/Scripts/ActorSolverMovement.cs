@@ -25,9 +25,16 @@ public class ActorSolverMovement : MonoBehaviour, IMovable {
     return false;
   }
 
+  public void Punch() {
+    transform.DOShakeScale(0.4f, 0.3f, 10, 1.0f);
+  }
+
   private void Move(GridNode location, Vector3 direction) {
-    transform.DOMove(new Vector3(location.transform.position.x, transform.position.y, location.transform.position.z),
+    var sq = DOTween.Sequence();
+    var move= transform.DOMove(new Vector3(location.transform.position.x, transform.position.y, location.transform.position.z),
       0.3f);
+    var shakeScale = transform.DOShakeScale(0.3f, 0.3f, 10, 1.0f);
+    sq.Append(move).Append(shakeScale).Play();
   }
 
 }
